@@ -4,7 +4,10 @@ const paymentSchema = mongoose.Schema({
         type: mongoose.Types.ObjectId, ref: "user", required: true
     },
     payment:{
-        type:mongoose.Schema.Types.Mixed, required: true
+        type:mongoose.Schema.Types.Mixed, required: true,
+    },
+    payment_type:{
+        type: String,
     }
 },{
     timestamps:true,

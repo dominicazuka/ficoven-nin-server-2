@@ -34,6 +34,7 @@ router.post("/bookservice", async (req, res) => {
         payer: { ...payment.payer, userId: result.user.userId },
       },
       doc_id: result._id,
+      payment_type: "PayPal"
     });
     eventManager.emit("new_booking", _body);
 
