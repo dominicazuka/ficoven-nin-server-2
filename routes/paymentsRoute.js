@@ -87,11 +87,9 @@ router.post(
   "/verify-voguepay", 
   async (req, res) => {
     try {
-      console.log(req.body);
       const payload = req.body;
       const {booking, payment} = payload;
       const {data} = await axios.get(`https://pay.voguepay.com/?v_transaction_id=${payment.transaction_id}&v_merchant_id=${payment.v_merchant_id}&type=json`);
-      console.log(booking);
       const userId = uniqueNumber();
       const _body = { ...booking, user: { ...booking.user, userId } };
       const result = await Booking.create(_body);

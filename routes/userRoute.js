@@ -215,7 +215,6 @@ router.patch(
       );
       res.status(200).json({ message: "User updated successfully" });
     } catch (error) {
-      console.log(error);
       return res
         .status(400)
         .json({ message: "An error occured, trying to update user details" });
@@ -305,7 +304,6 @@ router.patch(
   validate(validateBlockUnblockUserInput),
   async (req, res) => {
     try {
-      console.log(req.body);
       let { _id, isBlocked } = req.body;
       await User.findOneAndUpdate({ _id }, { isBlocked });
       const message = isBlocked
